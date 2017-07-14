@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="resourceMapper">
+
+    <insert id="insertResource">
+    
+        INSERT INTO TH_RESOURCE
+        (
+            NODE_IP,
+            UPDATE_TIME,
+            CPU_USAGE,
+            MEM_USAGE,
+            DISK_USAGE,
+            NET_RECEIVE,
+            NET_SEND
+        )
+        VALUES
+        (
+            #{ip},
+            #{datetime},
+            #{cpu_usage},
+            #{ram_usage},
+            #{disk_usage},
+            #{network_receive},
+            #{network_send}
+        );
+    </insert>
+
+    
+</mapper>

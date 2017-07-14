@@ -1,0 +1,68 @@
+2017:07:14 17:04:35.271 INFO  --- [restartedMain]
+				c.m.u.ResourceCollectorApplication : Starting ResourceCollectorApplication on yjkim-MacBook-Pro.local with PID 2045 (/Users/yjkim/dev/sts_workspace/ResourceCollector/target/classes started by yjkim in /Users/yjkim/dev/sts_workspace/ResourceCollector) 
+2017:07:14 17:04:35.278 INFO  --- [restartedMain]
+				c.m.u.ResourceCollectorApplication : No active profile set, falling back to default profiles: default 
+2017:07:14 17:04:35.310 INFO  --- [restartedMain]
+				o.s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@78c819bd: startup date [Fri Jul 14 17:04:35 KST 2017]; root of context hierarchy 
+2017:07:14 17:04:35.580 WARN  --- [restartedMain]
+				o.m.s.mapper.ClassPathMapperScanner : No MyBatis mapper was found in '[com.mobigen.util]' package. Please check your configuration. 
+2017:07:14 17:04:36.116 INFO  --- [restartedMain]
+				o.s.b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729 
+2017:07:14 17:04:36.210 INFO  --- [restartedMain]
+				o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2017:07:14 17:04:36.302 INFO  --- [restartedMain]
+				c.m.u.s.ResourceCollectService : {datetime=20170714170400, ram_usage=64, network_receive=820166182, ip=192.168.100.100, disk_usage=33, cpu_usage=10, network_send=46688550} 
+2017:07:14 17:05:22.813 INFO  --- [Thread-6]
+				o.s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@78c819bd: startup date [Fri Jul 14 17:04:35 KST 2017]; root of context hierarchy 
+2017:07:14 17:05:22.818 INFO  --- [Thread-6]
+				o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans on shutdown 
+2017:07:14 17:05:22.971 INFO  --- [restartedMain]
+				c.m.u.ResourceCollectorApplication : Starting ResourceCollectorApplication on yjkim-MacBook-Pro.local with PID 2045 (/Users/yjkim/dev/sts_workspace/ResourceCollector/target/classes started by yjkim in /Users/yjkim/dev/sts_workspace/ResourceCollector) 
+2017:07:14 17:05:22.971 INFO  --- [restartedMain]
+				c.m.u.ResourceCollectorApplication : No active profile set, falling back to default profiles: default 
+2017:07:14 17:05:22.974 INFO  --- [restartedMain]
+				o.s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@56a30574: startup date [Fri Jul 14 17:05:22 KST 2017]; root of context hierarchy 
+2017:07:14 17:05:23.108 WARN  --- [restartedMain]
+				o.m.s.mapper.ClassPathMapperScanner : No MyBatis mapper was found in '[com.mobigen.util]' package. Please check your configuration. 
+2017:07:14 17:05:23.243 INFO  --- [restartedMain]
+				o.s.b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729 
+2017:07:14 17:05:23.258 INFO  --- [restartedMain]
+				o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2017:07:14 17:05:23.280 INFO  --- [restartedMain]
+				c.m.u.s.ResourceCollectService : {datetime=20170714170500, ram_usage=62, network_receive=823208263, ip=192.168.100.100, disk_usage=33, cpu_usage=10, network_send=46727829} 
+2017:07:14 17:05:38.197 INFO  --- [RMI TCP Connection(2)-127.0.0.1]
+				o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested. 
+2017:07:14 17:05:38.198 INFO  --- [RMI TCP Connection(2)-127.0.0.1]
+				o.s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@56a30574: startup date [Fri Jul 14 17:05:22 KST 2017]; root of context hierarchy 
+2017:07:14 17:05:38.201 INFO  --- [RMI TCP Connection(2)-127.0.0.1]
+				o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans on shutdown 
+2017:07:14 17:07:59.536 INFO  --- [restartedMain]
+				c.m.u.ResourceCollectorApplication : Starting ResourceCollectorApplication on yjkim-MacBook-Pro.local with PID 2066 (/Users/yjkim/dev/sts_workspace/ResourceCollector/target/classes started by yjkim in /Users/yjkim/dev/sts_workspace/ResourceCollector) 
+2017:07:14 17:07:59.545 INFO  --- [restartedMain]
+				c.m.u.ResourceCollectorApplication : No active profile set, falling back to default profiles: default 
+2017:07:14 17:07:59.577 INFO  --- [restartedMain]
+				o.s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@72d0f20b: startup date [Fri Jul 14 17:07:59 KST 2017]; root of context hierarchy 
+2017:07:14 17:07:59.903 WARN  --- [restartedMain]
+				o.m.s.mapper.ClassPathMapperScanner : No MyBatis mapper was found in '[com.mobigen.util]' package. Please check your configuration. 
+2017:07:14 17:08:00.634 INFO  --- [restartedMain]
+				o.s.b.d.a.OptionalLiveReloadServer : LiveReload server is running on port 35729 
+2017:07:14 17:08:00.661 INFO  --- [restartedMain]
+				o.s.j.e.a.AnnotationMBeanExporter : Registering beans for JMX exposure on startup 
+2017:07:14 17:08:00.791 INFO  --- [restartedMain]
+				c.m.u.s.ResourceCollectService : {datetime=20170714170800, ram_usage=62, network_receive=833350593, ip=192.168.100.100, disk_usage=33, cpu_usage=10, network_send=50886998} 
+2017:07:14 17:11:21.613 INFO  --- [Thread-8]
+				o.s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@72d0f20b: startup date [Fri Jul 14 17:07:59 KST 2017]; root of context hierarchy 
+2017:07:14 17:11:21.620 INFO  --- [Thread-8]
+				o.s.j.e.a.AnnotationMBeanExporter : Unregistering JMX-exposed beans on shutdown 
+2017:07:14 17:20:39.642 INFO  --- [main]
+				c.m.u.ResourceCollectorApplicationTests : Starting ResourceCollectorApplicationTests on yjkim-MacBook-Pro.local with PID 2086 (started by yjkim in /Users/yjkim/dev/sts_workspace/ResourceCollector) 
+2017:07:14 17:20:39.658 INFO  --- [main]
+				c.m.u.ResourceCollectorApplicationTests : No active profile set, falling back to default profiles: default 
+2017:07:14 17:20:39.685 INFO  --- [main]
+				o.s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@36916eb0: startup date [Fri Jul 14 17:20:39 KST 2017]; root of context hierarchy 
+2017:07:14 17:20:40.081 WARN  --- [main]
+				o.m.s.mapper.ClassPathMapperScanner : No MyBatis mapper was found in '[com.mobigen.util]' package. Please check your configuration. 
+2017:07:14 17:20:41.120 INFO  --- [main]
+				c.m.u.s.ResourceCollectService : {datetime=20170714172000, ram_usage=62, network_receive=881593584, ip=192.168.100.100, disk_usage=33, cpu_usage=10, network_send=51778479} 
+2017:07:14 17:24:01.877 INFO  --- [Thread-3]
+				o.s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@36916eb0: startup date [Fri Jul 14 17:20:39 KST 2017]; root of context hierarchy 
