@@ -33,7 +33,13 @@ public class ResourceCollectService {
 	@Value("${server.ip}")
 	private String serverIp;
 
-	public Map<String,String> getResource() throws Exception {
+	public void getResource() throws Exception {
+		Map<String,String> resultMap = getSystemResource();
+		logger.info(resultMap.toString());
+		dao.insertResource(resultMap);
+	}
+	
+	public Map<String,String> getSystem() throws Exception {
 		
 		Map<String,String> resultMap = getSystemResource();
 		logger.info(resultMap.toString());

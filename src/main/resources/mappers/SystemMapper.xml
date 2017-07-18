@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="systemMapper">
+
+    <select id="selectSystem" resultType="map">
+        SELECT COUNT(*) FROM TB_NODE WHERE NODE_IP = #{ip};
+    </select>
+    
+    <insert id="insertSystem">
+    
+        INSERT INTO TB_NODE
+        (
+            NODE_NAME,
+            NODE_IP,
+            NODE_MAC,
+            NODE_CPU,
+            NODE_MEMORY,
+            NODE_DISK,
+            NODE_OS
+        )
+        VALUES
+        (
+            #{hostname},
+            #{ip},
+            #{macAddress},
+            #{cpu},
+            #{memory},
+            #{disk},
+            #{os}
+        );
+    </insert>
+    
+    <update id="updateSystem">
+        UPDATE TB_NODE
+        <set>
+            NODE_NAME = #{hostname},
+            NODE_IP = #{ip},
+            NODE_MAC = #{macAddress},
+            NODE_CPU = #{cpu},
+            NODE_MEMORY = #{memory},
+            NODE_DISK = #{disk},
+            NODE_OS = #{os}
+        </set>
+        WHERE
+            NODE_IP = #{ip};
+    </update>
+    
+</mapper>
