@@ -37,7 +37,7 @@ public class ResourceCollectService {
 		
 		Map<String,String> resultMap = getSystemResource();
 		logger.info(resultMap.toString());
-		//dao.insertResource(resultMap);
+		dao.insertResource(resultMap);
 		
 		return resultMap;
 	}

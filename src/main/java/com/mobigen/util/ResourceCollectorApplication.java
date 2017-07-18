@@ -1,7 +1,5 @@
 package com.mobigen.util;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,7 +13,7 @@ import com.mobigen.util.service.ResourceCollectService;
 @SpringBootApplication
 @EnableScheduling
 //public class ResourceCollectorApplication implements CommandLineRunner {
-public class ResourceCollectorApplication {
+public class ResourceCollectorApplication implements CommandLineRunner  {
 
 	@Autowired
 	private ResourceCollectService service;
@@ -35,5 +33,11 @@ public class ResourceCollectorApplication {
 	@Scheduled(fixedRate = 1000 * 60)
 	public void scheduleTask() throws Exception {
 		service.getResource();
+	}
+
+	@Override
+	public void run(String... arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 }

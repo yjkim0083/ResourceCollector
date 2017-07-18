@@ -1,0 +1,14 @@
+2017:07:18 09:30:37.212 INFO  --- [main]
+				c.m.u.ResourceCollectorApplicationTests : Starting ResourceCollectorApplicationTests on yjkim-MacBook-Pro.local with PID 2285 (started by yjkim in /Users/yjkim/dev/sts_workspace/ResourceCollector) 
+2017:07:18 09:30:37.224 INFO  --- [main]
+				c.m.u.ResourceCollectorApplicationTests : No active profile set, falling back to default profiles: default 
+2017:07:18 09:30:37.243 INFO  --- [main]
+				o.s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@27462a88: startup date [Tue Jul 18 09:30:37 KST 2017]; root of context hierarchy 
+2017:07:18 09:30:37.502 WARN  --- [main]
+				o.m.s.mapper.ClassPathMapperScanner : No MyBatis mapper was found in '[com.mobigen.util]' package. Please check your configuration. 
+2017:07:18 09:30:38.209 INFO  --- [main]
+				o.s.s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing 
+2017:07:18 09:30:38.223 INFO  --- [main]
+				c.m.u.ResourceCollectorApplicationTests : Started ResourceCollectorApplicationTests in 1.441 seconds (JVM running for 2.323) 
+2017:07:18 09:30:38.338 INFO  --- [Thread-3]
+				o.s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@27462a88: startup date [Tue Jul 18 09:30:37 KST 2017]; root of context hierarchy 
