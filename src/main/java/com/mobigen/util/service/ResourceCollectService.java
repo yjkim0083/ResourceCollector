@@ -78,8 +78,8 @@ public class ResourceCollectService {
 		resourceMap.put("disk_usage", String.valueOf(diskUsage));
 		resourceMap.put("network_receive", String.valueOf(networkUsage[0]));
 		resourceMap.put("network_send", String.valueOf(networkUsage[1]));
-		resourceMap.put("iowait", String.valueOf(cpuStatus[0]));
-		resourceMap.put("load_avg", String.valueOf(cpuStatus[1]));
+		resourceMap.put("iowait", String.format("%.2f",cpuStatus[0]));
+		resourceMap.put("load_avg", String.format("%.2f",cpuStatus[1]));
 				
 		return resourceMap;
 	}
