@@ -49,10 +49,16 @@
 		
 		<!-- system info -->
         <!-- https://mvnrepository.com/artifact/com.github.dblock/oshi-core -->
-        <dependency>
+        <!-- <dependency>
             <groupId>com.github.dblock</groupId>
             <artifactId>oshi-core</artifactId>
             <version>3.4.0</version>
+        </dependency> -->
+        
+        <dependency>
+            <groupId>com.github.oshi</groupId>
+            <artifactId>oshi-json</artifactId>
+            <version>3.4.3</version>
         </dependency>
         
         <dependency>

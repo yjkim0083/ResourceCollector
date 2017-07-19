@@ -12,7 +12,9 @@
             MEM_USAGE,
             DISK_USAGE,
             NET_RECEIVE,
-            NET_SEND
+            NET_SEND,
+            IO_WAIT,
+            LOAD_AVG
         )
         VALUES
         (
@@ -22,7 +24,9 @@
             #{ram_usage},
             #{disk_usage},
             #{network_receive},
-            #{network_send}
+            #{network_send},
+            #{iowait},
+            #{load_avg}
         );
     </insert>
 
