@@ -73,11 +73,18 @@ public class ResourceCollectService {
         long[] networkUsage = printNetworkInterfaces(hal.getNetworkIFs());
         double[] cpuStatus = printCpuStatus(hal.getProcessor());
         
+        Map<String,Object> prevResourceMap = dao.selectPrevResource(serverIp);
+        
+        long prevNetReceive = (Long) prevResourceMap.get("NET_RECEIVE");
+        long prevNetSend = (Long) prevResourceMap.get("NET_SEND");
+                
         resourceMap.put("cpu_usage", String.valueOf(cpuUsage));
         resourceMap.put("ram_usage", String.valueOf(memoryUsage));
 		resourceMap.put("disk_usage", String.valueOf(diskUsage));
 		resourceMap.put("network_receive", String.valueOf(networkUsage[0]));
 		resourceMap.put("network_send", String.valueOf(networkUsage[1]));
+		resourceMap.put("network_receive_variance", String.valueOf( networkUsage[0] - prevNetReceive));
+		resourceMap.put("network_send_variance", String.valueOf( networkUsage[1] - prevNetSend));
 		resourceMap.put("iowait", String.format("%.2f",cpuStatus[0]));
 		resourceMap.put("load_avg", String.format("%.2f",cpuStatus[1]));
 				

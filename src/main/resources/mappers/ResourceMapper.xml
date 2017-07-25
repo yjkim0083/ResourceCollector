@@ -13,6 +13,8 @@
             DISK_USAGE,
             NET_RECEIVE,
             NET_SEND,
+            NET_RECEIVE_VARIANCE,
+            NET_SEND_VARIANCE,
             IO_WAIT,
             LOAD_AVG
         )
@@ -25,10 +27,29 @@
             #{disk_usage},
             #{network_receive},
             #{network_send},
+            #{network_receive_variance},
+            #{network_send_variance},
             #{iowait},
             #{load_avg}
         );
     </insert>
 
+    <select id="selectPrevResource" resultType="map">
+        SELECT 
+            * 
+        FROM 
+            TH_RESOURCE 
+        WHERE 
+            NODE_IP = #{serverIp} AND
+            UPDATE_TIME = 
+            (
+                SELECT
+                    MAX(UPDATE_TIME)
+                FROM
+                    TH_RESOURCE
+                WHERE
+                    NODE_IP = #{serverIp}
+            ); 
+    </select>
     
 </mapper>

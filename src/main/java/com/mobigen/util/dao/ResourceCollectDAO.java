@@ -1,5 +1,6 @@
 package com.mobigen.util.dao;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -14,6 +15,12 @@ public class ResourceCollectDAO {
 	
 	public void insertResource(Map<String, String> resultMap) {
 		sqlSession.insert("resourceMapper.insertResource", resultMap);
+	}
+	
+	public Map<String,Object> selectPrevResource(String serverIp) {
+		Map<String,String> param = new HashMap<>();
+		param.put("serverIp", serverIp);
+		return sqlSession.selectOne("resourceMapper.selectPrevResource", param);
 	}
 
 }
