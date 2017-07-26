@@ -52,4 +52,38 @@
             ); 
     </select>
     
+    <select id="selectThresholdByServerIp" resultType="map">
+        SELECT
+            NODE.NODE_ID AS NODE_ID,
+            THRESHOLD.CPU_THRESHOLD AS CPU_THRESHOLD,
+            THRESHOLD.MEMORY_THRESHOLD AS MEMORY_THRESHOLD,
+            THRESHOLD.DISK_THRESHOLD AS DISK_THRESHOLD
+        FROM
+            TC_THRESHOLD THRESHOLD,
+            TB_NODE NODE
+        WHERE
+            THRESHOLD.NODE_ID = NODE.NODE_ID AND
+            NODE.NODE_IP = #{serverIp};
+    </select>
+    
+    <insert id="insertAlert" parameterType="java.util.List">
+        INSERT INTO TH_ALERT
+        (
+            NODE_ID,
+            UPDATE_TIME,
+            ALERT_TYPE,
+            ALERT_LEVEL,
+            ALERT_MESSAGE
+        )
+        VALUES
+        <foreach item="item" index="index" collection="list" separator=",">
+        (   
+            #{item.nodeId},
+            str_to_date(#{item.updateTime}, '%Y%m%d%H%i%s'),
+            #{item.alertType},
+            #{item.alertLevel},
+            #{item.alertMessage}
+        )
+        </foreach>
+    </insert>
 </mapper>

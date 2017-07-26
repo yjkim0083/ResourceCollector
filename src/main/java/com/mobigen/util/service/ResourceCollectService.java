@@ -1,8 +1,10 @@
 package com.mobigen.util.service;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -37,20 +39,16 @@ public class ResourceCollectService {
 
 	public void getResource() throws Exception {
 		Map<String,String> resultMap = getSystemResource();
-		logger.info(resultMap.toString());
 		dao.insertResource(resultMap);
 	}
 	
-	public Map<String,String> getSystem() throws Exception {
+	public void getSystem() throws Exception {
 		
 		Map<String,String> resultMap = getSystemResource();
-		logger.info(resultMap.toString());
 		dao.insertResource(resultMap);
-		
-		return resultMap;
 	}
 	
-	private Map<String, String> getSystemResource() {
+	private Map<String, String> getSystemResource() throws Exception {
 		Map<String, String> resourceMap = new HashMap<String, String>();
 		resourceMap.put("cpu_usage", "0");
 		resourceMap.put("ram_usage", "0");
@@ -73,6 +71,10 @@ public class ResourceCollectService {
         long[] networkUsage = printNetworkInterfaces(hal.getNetworkIFs());
         double[] cpuStatus = printCpuStatus(hal.getProcessor());
         
+        // threshold over check
+        checkThreshold(cpuUsage, memoryUsage, diskUsage, serverIp);
+        
+        // network variance check
         Map<String,Object> prevResourceMap = dao.selectPrevResource(serverIp);
         
         long prevNetReceive = (Long) prevResourceMap.get("NET_RECEIVE");
@@ -89,6 +91,51 @@ public class ResourceCollectService {
 		resourceMap.put("load_avg", String.format("%.2f",cpuStatus[1]));
 				
 		return resourceMap;
+	}
+	
+	private void checkThreshold(int cpuUsage, int memoryUsage, int diskUsage, String serverIp) throws Exception {
+		
+		Map<String, Integer> nodeThresholdMap = dao.selectThresholdByServerIp(serverIp);
+		int nodeId = nodeThresholdMap.get("NODE_ID");
+        int cpuThreshold = nodeThresholdMap.get("CPU_THRESHOLD");
+        int memoryThreshold = nodeThresholdMap.get("MEMORY_THRESHOLD");
+        int diskThreshold = nodeThresholdMap.get("DISK_THRESHOLD");
+        
+        List<Map<String, Object>> thresholdOverList = new ArrayList<>();
+        Map<String,Object> thresholdOverMap = null;
+        
+        // cpu
+        if(cpuUsage > cpuThreshold) {
+        	thresholdOverMap = getThresholdOverMap(nodeId);
+        	thresholdOverMap.put("alertMessage", "CPU_USAGE(" + cpuUsage + ")");
+        	thresholdOverList.add(thresholdOverMap);
+        }
+        // memory
+        if(memoryUsage > memoryThreshold) {
+        	thresholdOverMap = getThresholdOverMap(nodeId);
+        	thresholdOverMap.put("alertMessage", "MEMORY_USAGE(" + memoryUsage + ")");
+        	thresholdOverList.add(thresholdOverMap);
+        }
+        // disk
+        if(diskUsage > diskThreshold) {
+        	thresholdOverMap = getThresholdOverMap(nodeId);
+        	thresholdOverMap.put("alertMessage", "DISK_USAGE(" + diskUsage + ")");
+        	thresholdOverList.add(thresholdOverMap);
+        }
+        
+        // cpu, memory, disk 의 임계치를 넘어가는 정보를 DB에 저장한다.
+        if(thresholdOverList.size() > 0) {
+        	dao.insertAlert(thresholdOverList);
+        }
+	}
+	
+	private Map<String,Object> getThresholdOverMap(int nodeId) {
+		Map<String,Object> thresholdOverMap = new HashMap<>();
+		thresholdOverMap.put("nodeId", nodeId);
+    	thresholdOverMap.put("updateTime", new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
+    	thresholdOverMap.put("alertType", "RESOURCE");
+    	thresholdOverMap.put("alertLevel", "WARN");
+    	return thresholdOverMap;
 	}
 
 	/**
